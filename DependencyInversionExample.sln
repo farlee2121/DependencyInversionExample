@@ -1,25 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32210.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A667D094-9CBF-4CE7-BA3A-2B828C49BF86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Managers.RecipeManagementService", "src\Managers.RecipeManagementService\Managers.RecipeManagementService.csproj", "{2532042A-6D97-47E2-A794-290EB89C2420}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Managers.RecipeManagementService", "src\Managers.RecipeManagementService\Managers.RecipeManagementService.csproj", "{2532042A-6D97-47E2-A794-290EB89C2420}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Documentation", "docs\Documentation.csproj", "{DE22A9E4-BBE5-4F82-B9FB-2DBA70A359AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Documentation", "docs\Documentation.csproj", "{DE22A9E4-BBE5-4F82-B9FB-2DBA70A359AB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{4736289A-94A7-4E10-ACFD-BD2573919312}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeManagementService.Tests", "test\RecipeManagementService.Tests\RecipeManagementService.Tests.csproj", "{331BC8FA-8BD0-4A69-9743-8A0D2FCD2AB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeManagementService.Tests", "test\RecipeManagementService.Tests\RecipeManagementService.Tests.csproj", "{331BC8FA-8BD0-4A69-9743-8A0D2FCD2AB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clients.Web", "src\Clients.Web\Clients.Web.csproj", "{7936B8F9-5A08-45AF-AB9D-131705B2C2CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2532042A-6D97-47E2-A794-290EB89C2420}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -34,9 +33,20 @@ Global
 		{331BC8FA-8BD0-4A69-9743-8A0D2FCD2AB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{331BC8FA-8BD0-4A69-9743-8A0D2FCD2AB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{331BC8FA-8BD0-4A69-9743-8A0D2FCD2AB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7936B8F9-5A08-45AF-AB9D-131705B2C2CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7936B8F9-5A08-45AF-AB9D-131705B2C2CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7936B8F9-5A08-45AF-AB9D-131705B2C2CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7936B8F9-5A08-45AF-AB9D-131705B2C2CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2532042A-6D97-47E2-A794-290EB89C2420} = {A667D094-9CBF-4CE7-BA3A-2B828C49BF86}
 		{331BC8FA-8BD0-4A69-9743-8A0D2FCD2AB9} = {4736289A-94A7-4E10-ACFD-BD2573919312}
+		{7936B8F9-5A08-45AF-AB9D-131705B2C2CA} = {A667D094-9CBF-4CE7-BA3A-2B828C49BF86}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F4FFEC4-4D55-4FAC-A702-5E628DDB0616}
 	EndGlobalSection
 EndGlobal
