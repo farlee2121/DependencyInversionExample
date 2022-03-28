@@ -1,4 +1,6 @@
-﻿namespace Managers;
+﻿using System.Collections.Immutable;
+
+namespace Managers;
   
 public class RecipeManagementService
 {
@@ -19,6 +21,15 @@ public class RecipeManagementService
         notifier.Notify(RecipeEvent.Published, recipeId);
 
         return new PublicationResult.Success();
+    }
+
+    public void CreateRecipe(Recipe recipe)
+    {
+        recipeAccess.CreateOrUpdate(recipe);
+    }
+    public IReadOnlyCollection<Recipe> ListRecipes()
+    {
+        return recipeAccess.ListRecipes();
     }
 }
 
@@ -52,7 +63,12 @@ public record Recipe(
     string Title,
     Markdown Instructions
 );
+
 public interface IRecipeAccess
 {
     Recipe? FindRecipe(RecipeId id);
+
+    void CreateOrUpdate(Recipe recipe);
+
+    IReadOnlyCollection<Recipe> ListRecipes();
 }

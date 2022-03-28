@@ -3,6 +3,7 @@ using Managers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Immutable;
 
 namespace RecipeManagementServiceTests;
 
@@ -34,20 +35,38 @@ public class RecipeManagementServiceTests
     {
         return new Recipe(
             RecipeId.NewId(),
-            "Sample",
-            new Markdown("Instructions")
+            $"Title {Guid.NewGuid()}",
+            new Markdown($"Instructions {Guid.NewGuid()}")
         );
     }
     [Fact]
     public void PublishRaisesNotification()
     {
         Recipe recipe = GenerateRecipe();
-        recipeAccessDouble.CreateRecipe(recipe);
+        sut.CreateRecipe(recipe);
 
         sut.Publish(recipe.Id);
 
         var expectedEvent = new SpyRecipeEventNotifier.Notification(RecipeEvent.Published, recipe.Id);
         Assert.Equal(expectedEvent, spyNotifier.RecievedNotifications.FirstOrDefault());
+    }
+
+    [Fact]
+    public void ListRecipesReturnsEmptyByDefault()
+    {
+        var actualRecipes = sut.ListRecipes();
+
+        Assert.Empty(actualRecipes);
+    }
+
+    [Fact]
+    public void CreatedRecipeIsListed()
+    {
+        Recipe expectedRecipe = GenerateRecipe();
+        sut.CreateRecipe(expectedRecipe);
+        var actualRecipes = sut.ListRecipes();
+
+        Assert.Equal(expectedRecipe, actualRecipes.FirstOrDefault());
     }
 }
 
@@ -66,14 +85,19 @@ class SpyRecipeEventNotifier : IRecipeEventNotifier
 
 class InMemoryRecipeAccess : IRecipeAccess
 {
-    private List<Recipe> _recipes = new List<Recipe>();
+    private Dictionary<RecipeId, Recipe> _recipes = new ();
     public Recipe? FindRecipe(RecipeId id)
     {
-        return _recipes.FirstOrDefault(r => r.Id == id);
+        return _recipes.GetValueOrDefault(id);
     }
 
-    public void CreateRecipe(Recipe recipe)
+    public void CreateOrUpdate(Recipe recipe)
     {
-        _recipes.Add(recipe);
+        _recipes[recipe.Id] = recipe;
+    }
+
+    public IReadOnlyCollection<Recipe> ListRecipes()
+    {
+        return _recipes.Values.ToImmutableList();
     }
 }
