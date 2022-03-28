@@ -67,23 +67,23 @@ public abstract class IRecipeAccessTests
         Assert.Equal(expectedRecipe, actualRecipes.FirstOrDefault());
         Assert.Single(actualRecipes);
     }
-}
 
-public static class Repeat
-{
-    public static void Action(int repetitions, Action action)
+    [Fact]
+    public void UpdateRecipeUpdatesLookupAndList()
     {
-        for (int i = 0; i < repetitions; i++)
-        {
-            action();
-        }
-    }
-}
+        Recipe originalRecipe = GenerateRecipe();
 
-public class InMemoryRecipeAccessTests : IRecipeAccessTests
-{
-    public override IRecipeAccess SutFactory()
-    {
-        return new InMemoryRecipeAccess();
+        Recipe expectedRecipe = GenerateRecipe() with { Id = originalRecipe.Id };
+
+        sut.CreateOrUpdateRecipe(originalRecipe);
+        sut.CreateOrUpdateRecipe(expectedRecipe);
+
+        var actualRecipes = sut.ListRecipes();
+
+        Assert.Equal(expectedRecipe, actualRecipes.FirstOrDefault());
+        Assert.Single(actualRecipes);
+
+        var actualLookupRecipe = sut.FindRecipe(originalRecipe.Id);
+        Assert.Equal(expectedRecipe, actualLookupRecipe);
     }
 }
