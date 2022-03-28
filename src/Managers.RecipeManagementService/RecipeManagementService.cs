@@ -1,10 +1,10 @@
-﻿namespace Managers.RecipeManagementService;
+﻿namespace Managers;
   
-public class RecipeManagerService
+public class RecipeManagementService
 {
     private readonly IRecipeEventNotifier notifier;
 
-    public RecipeManagerService(IRecipeEventNotifier notifier)
+    public RecipeManagementService(IRecipeEventNotifier notifier)
     {
         this.notifier = notifier;
     }
@@ -14,7 +14,7 @@ public class RecipeManagerService
     }
 }
 
-public record RecipeId(Guid id);
+
 
 public enum RecipeEvent{
     Published,
@@ -24,3 +24,5 @@ public enum RecipeEvent{
 public interface IRecipeEventNotifier{
     void Notify(RecipeEvent recipeEvent, RecipeId recipeId);
 }
+
+public record RecipeId(Guid id);

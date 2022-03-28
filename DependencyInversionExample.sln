@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Managers.RecipeManagementSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Documentation", "docs\Documentation.csproj", "{DE22A9E4-BBE5-4F82-B9FB-2DBA70A359AB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{4736289A-94A7-4E10-ACFD-BD2573919312}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeManagementService.Tests", "test\RecipeManagementService.Tests\RecipeManagementService.Tests.csproj", "{331BC8FA-8BD0-4A69-9743-8A0D2FCD2AB9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,8 +30,13 @@ Global
 		{DE22A9E4-BBE5-4F82-B9FB-2DBA70A359AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE22A9E4-BBE5-4F82-B9FB-2DBA70A359AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE22A9E4-BBE5-4F82-B9FB-2DBA70A359AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{331BC8FA-8BD0-4A69-9743-8A0D2FCD2AB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{331BC8FA-8BD0-4A69-9743-8A0D2FCD2AB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{331BC8FA-8BD0-4A69-9743-8A0D2FCD2AB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{331BC8FA-8BD0-4A69-9743-8A0D2FCD2AB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2532042A-6D97-47E2-A794-290EB89C2420} = {A667D094-9CBF-4CE7-BA3A-2B828C49BF86}
+		{331BC8FA-8BD0-4A69-9743-8A0D2FCD2AB9} = {4736289A-94A7-4E10-ACFD-BD2573919312}
 	EndGlobalSection
 EndGlobal
