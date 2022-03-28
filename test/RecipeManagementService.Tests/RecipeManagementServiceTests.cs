@@ -3,7 +3,6 @@ using Managers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Collections.Immutable;
 
 namespace RecipeManagementServiceTests;
 
@@ -80,24 +79,5 @@ class SpyRecipeEventNotifier : IRecipeEventNotifier
     public void Notify(RecipeEvent recipeEvent, RecipeId recipeId)
     {
         RecievedNotifications.Add(new Notification(recipeEvent, recipeId));
-    }
-}
-
-class InMemoryRecipeAccess : IRecipeAccess
-{
-    private Dictionary<RecipeId, Recipe> _recipes = new ();
-    public Recipe? FindRecipe(RecipeId id)
-    {
-        return _recipes.GetValueOrDefault(id);
-    }
-
-    public void CreateOrUpdate(Recipe recipe)
-    {
-        _recipes[recipe.Id] = recipe;
-    }
-
-    public IReadOnlyCollection<Recipe> ListRecipes()
-    {
-        return _recipes.Values.ToImmutableList();
     }
 }

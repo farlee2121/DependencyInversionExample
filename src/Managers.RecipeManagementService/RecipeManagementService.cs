@@ -25,7 +25,7 @@ public class RecipeManagementService
 
     public void CreateRecipe(Recipe recipe)
     {
-        recipeAccess.CreateOrUpdate(recipe);
+        recipeAccess.CreateOrUpdateRecipe(recipe);
     }
     public IReadOnlyCollection<Recipe> ListRecipes()
     {
@@ -68,7 +68,7 @@ public interface IRecipeAccess
 {
     Recipe? FindRecipe(RecipeId id);
 
-    void CreateOrUpdate(Recipe recipe);
+    void CreateOrUpdateRecipe(Recipe recipe);
 
     IReadOnlyCollection<Recipe> ListRecipes();
 }
