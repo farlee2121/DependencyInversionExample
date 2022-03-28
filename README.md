@@ -37,5 +37,22 @@ Benefits of Dependency Inversion (over injection)
   - easier to isolate difficult migrations to adapters only referenced in the top-level client, maximizing portability of the most code
 - Leads to better application of the Open-Closed principle
 
+Some examples of composed adapters
+- Events are a major application. Allow response to service actions without service knowing about subscribers, or subscribers knowing about each other 
+- Migration: composite to read from original store while writing to both until new store is ready
+- Caching: Can wrap a port with a caching decorator without changing service or the implementing adapter
+- Retry / failure policy: again added as a decorator
+- Transport/protocol: requests to a port/service can be moved out of process without service or adapter changing, only a new decorator (and maybe a new client) 
+- Authorization
 
-
+## Tasks
+- [x] make readme explaining demonstrated ideas
+- [ ] Demonstrate a composition root
+- [ ] Demonstrate injecting request context without caller knowing the information
+  - [ ] restrict recipes by user
+  - [ ] add basic recipe create and list
+  - [ ] Add authentication decorator
+- [ ] Demonstrate a service instantiated two ways in a single DI chain
+- [ ] Demonstrate some component reuse (idea: migration, backup, scheduled tasks)
+- [ ] Demonstrate pure composition root
+  - [ ] arguably accomplished by tests
