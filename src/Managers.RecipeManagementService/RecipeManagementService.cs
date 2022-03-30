@@ -23,13 +23,13 @@ public class RecipeManagementService
         return new PublicationResult.Success();
     }
 
-    public void CreateRecipe(Recipe recipe)
+    public void CreateRecipe(UserId userId, Recipe recipe)
     {
-        recipeAccess.CreateOrUpdateRecipe(recipe);
+        recipeAccess.CreateOrUpdateRecipe(userId, recipe);
     }
-    public IReadOnlyCollection<Recipe> ListRecipes()
+    public IReadOnlyCollection<Recipe> ListRecipes(UserId userId)
     {
-        return recipeAccess.ListRecipes();
+        return recipeAccess.ListRecipes(userId);
     }
 
     public Recipe? RecipeDetails(RecipeId recipeId)
@@ -37,6 +37,8 @@ public class RecipeManagementService
         return recipeAccess.FindRecipe(recipeId);
     }
 }
+
+public record UserId(string userId);
 
 
 public record PublicationResult

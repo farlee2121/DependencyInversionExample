@@ -4,7 +4,7 @@ public interface IRecipeAccess
 {
     Recipe? FindRecipe(RecipeId id);
 
-    void CreateOrUpdateRecipe(Recipe recipe);
+    void CreateOrUpdateRecipe(UserId userId, Recipe recipe);
 
-    IReadOnlyCollection<Recipe> ListRecipes();
+    IReadOnlyCollection<Recipe> ListRecipes(UserId userId);
 }

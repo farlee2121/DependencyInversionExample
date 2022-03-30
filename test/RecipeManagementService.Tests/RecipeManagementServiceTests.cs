@@ -30,19 +30,13 @@ public class RecipeManagementServiceTests
         Assert.Empty(spyNotifier.RecievedNotifications);
     }
 
-    private Recipe GenerateRecipe()
-    {
-        return new Recipe(
-            RecipeId.NewId(),
-            $"Title {Guid.NewGuid()}",
-            new Markdown($"Instructions {Guid.NewGuid()}")
-        );
-    }
+    
     [Fact]
     public void PublishRaisesNotification()
     {
         Recipe recipe = GenerateRecipe();
-        sut.CreateRecipe(recipe);
+        UserId userId = NewUserId();
+        sut.CreateRecipe(userId, recipe);
 
         sut.Publish(recipe.Id);
 
@@ -50,29 +44,52 @@ public class RecipeManagementServiceTests
         Assert.Equal(expectedEvent, spyNotifier.RecievedNotifications.FirstOrDefault());
     }
 
+    
+
     [Fact]
     public void ListRecipesReturnsEmptyByDefault()
     {
-        var actualRecipes = sut.ListRecipes();
+        UserId userId = NewUserId();
+
+        var actualRecipes = sut.ListRecipes(userId);
 
         Assert.Empty(actualRecipes);
     }
+
 
     [Fact]
     public void CreatedRecipeIsListed()
     {
         Recipe expectedRecipe = GenerateRecipe();
-        sut.CreateRecipe(expectedRecipe);
-        var actualRecipes = sut.ListRecipes();
+        UserId userId = NewUserId();
+
+        sut.CreateRecipe(userId, expectedRecipe);
+        var actualRecipes = sut.ListRecipes(userId);
 
         Assert.Equal(expectedRecipe, actualRecipes.FirstOrDefault());
     }
 
     [Fact]
-    public void CreatedRecipeCanBeFound()
+    public void UserRecipesAreSeparate()
+    {
+        var userIds = Repeat.Generate(3, NewUserId);
+
+        var expectedRecipesPerUser = userIds.ToDictionary(userId => userId, userId => Repeat.Generate(3, GenerateRecipe));
+
+        Repeat.ForEach(expectedRecipesPerUser, kvp => Repeat.ForEach(kvp.Value, r => sut.CreateRecipe(kvp.Key, r)));
+
+        var actualRecipesPerUser = userIds.ToDictionary(id => id, userId => sut.ListRecipes(userId));
+
+        Assert.Equal(expectedRecipesPerUser, actualRecipesPerUser);
+    }
+
+    [Fact]
+    public void CreatedRecipeCanBeFoundById()
     {
         Recipe expectedRecipe = GenerateRecipe();
-        sut.CreateRecipe(expectedRecipe);
+        UserId userId = NewUserId();
+
+        sut.CreateRecipe(userId, expectedRecipe);
         var actualRecipe = sut.RecipeDetails(expectedRecipe.Id);
 
         Assert.Equal(expectedRecipe, actualRecipe);
@@ -84,6 +101,19 @@ public class RecipeManagementServiceTests
         var actualRecipe = sut.RecipeDetails(RecipeId.NewId());
 
         Assert.Null(actualRecipe);
+    }
+
+    private UserId NewUserId()
+    {
+        return new UserId(Guid.NewGuid().ToString());
+    }
+    private Recipe GenerateRecipe()
+    {
+        return new Recipe(
+            RecipeId.NewId(),
+            $"Title {Guid.NewGuid()}",
+            new Markdown($"Instructions {Guid.NewGuid()}")
+        );
     }
 }
 

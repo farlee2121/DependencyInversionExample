@@ -1,24 +1,27 @@
 ﻿using Managers;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Linq;
 
 namespace RecipeManagementServiceTests;
 
 class InMemoryRecipeAccess : IRecipeAccess
 {
-    private Dictionary<RecipeId, Recipe> _recipes = new ();
+    private Dictionary<(UserId uId, RecipeId rId), Recipe> _recipes = new ();
     public Recipe? FindRecipe(RecipeId id)
     {
-        return _recipes.GetValueOrDefault(id);
+        return _recipes.FirstOrDefault(kvp => kvp.Key.rId == id).Value;
     }
 
-    public void CreateOrUpdateRecipe(Recipe recipe)
+    public void CreateOrUpdateRecipe(UserId userId, Recipe recipe)
     {
-        _recipes[recipe.Id] = recipe;
+        _recipes[(userId,recipe.Id)] = recipe;
     }
 
-    public IReadOnlyCollection<Recipe> ListRecipes()
+    public IReadOnlyCollection<Recipe> ListRecipes(UserId userId)
     {
-        return _recipes.Values.ToImmutableList();
+        return _recipes.Where(kvp => kvp.Key.uId == userId)
+            .Select(kvp => kvp.Value)
+            .ToImmutableList();
     }
 }
