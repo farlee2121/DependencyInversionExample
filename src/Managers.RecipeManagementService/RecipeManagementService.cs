@@ -31,6 +31,11 @@ public class RecipeManagementService
     {
         return recipeAccess.ListRecipes();
     }
+
+    public Recipe? RecipeDetails(RecipeId recipeId)
+    {
+        return recipeAccess.FindRecipe(recipeId);
+    }
 }
 
 

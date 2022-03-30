@@ -67,6 +67,24 @@ public class RecipeManagementServiceTests
 
         Assert.Equal(expectedRecipe, actualRecipes.FirstOrDefault());
     }
+
+    [Fact]
+    public void CreatedRecipeCanBeFound()
+    {
+        Recipe expectedRecipe = GenerateRecipe();
+        sut.CreateRecipe(expectedRecipe);
+        var actualRecipe = sut.RecipeDetails(expectedRecipe.Id);
+
+        Assert.Equal(expectedRecipe, actualRecipe);
+    }
+
+    [Fact]
+    public void NonExistentRecipeDetailsAreNull()
+    {
+        var actualRecipe = sut.RecipeDetails(RecipeId.NewId());
+
+        Assert.Null(actualRecipe);
+    }
 }
 
 class SpyRecipeEventNotifier : IRecipeEventNotifier
