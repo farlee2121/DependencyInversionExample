@@ -56,3 +56,4 @@ Some examples of composed adapters
 - [ ] Demonstrate some component reuse (idea: migration, backup, scheduled tasks)
 - [ ] Demonstrate pure composition root
   - [ ] arguably accomplished by tests
+- [ ] Separate out adapter tests?
