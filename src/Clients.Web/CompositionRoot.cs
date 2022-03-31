@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection.Extensions;
 using Managers;
 using Managers.RecipeManagement;
+using Managers.RecipeManagement.RecipeEventNotifiers;
 using Managers.RecipeManagement.Identity;
 using Clients.Web.Extensions;
 using static Managers.RecipeManagement.Identity.AuthorizedRecipeManagementServiceDecorator;

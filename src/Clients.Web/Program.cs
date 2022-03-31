@@ -1,8 +1,6 @@
 using Utilities.Identity.AspIdentity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Managers;
 using Clients.Web;
 
 var builder = WebApplication.CreateBuilder(args);
