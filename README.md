@@ -65,3 +65,11 @@ Some examples of composed adapters
 note: now that UI is done, most of the other cases should be fairly simple. I don't actually need to implement much of anything, just some some composition cases.
 I can rely on naming to communicate what could be done
 - IDEA: I don't have to use
+
+It'd be good to show more interaction with accessor / utilities, but I'm not really feeling the chat service anymore. It's too much work for now.
+I think for now
+- [ ] Close out this round with notifiers
+  - [ ] Search index
+  - [ ] Email notification
+  - [ ] composite notifier
+- [ ] Maybe write a tool (migration?) or some other client usecase
