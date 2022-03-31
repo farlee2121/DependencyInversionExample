@@ -47,17 +47,18 @@ Some examples of composed adapters
 
 ## Tasks
 - [x] make readme explaining demonstrated ideas
-- [ ] Demonstrate a composition root
-	- I don't have to use the root. I could just demonstrate the equivalent registration in the UI. Since I only use the manager,
-	I can just do the pure composition root in the factory
-- [ ] Demonstrate injecting request context without caller knowing the information
+- [x] Demonstrate a composition root
+- [x] Demonstrate injecting request context without caller knowing the information
   - [x] restrict recipes by user
   - [x] add basic recipe create and list
-  - [ ] Add authentication decorator
+  - [x] Add authentication decorator
+- [ ] Decide if I want to deal with validating recipe actions that don't include a userId
 - [ ] Demonstrate a service instantiated two ways in a single DI chain
 - [ ] Demonstrate some component reuse (idea: migration, backup, scheduled tasks)
 - [ ] Demonstrate pure composition root
   - [ ] arguably accomplished by tests
+  - I don't have to use the root. I could just demonstrate the equivalent registration in the UI. Since I only use the manager,
+  I can just do the pure composition root in the factory
 - [ ] Separate out adapter tests?
 
 

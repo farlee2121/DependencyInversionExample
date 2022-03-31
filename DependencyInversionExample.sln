@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clients.Web", "src\Clients.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utilities.Identity.AspIdentity", "src\Utilities.Identity.AspIdentity\Utilities.Identity.AspIdentity.csproj", "{AE8C057E-5525-403E-98C9-037224BB9880}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Managers.RecipeManagement.Adapters", "Managers.RecipeManagementService.Adapters\Managers.RecipeManagement.Adapters.csproj", "{E0F01253-8329-4055-A459-801C27A0C1FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Managers.RecipeManagement.Adapters", "src\Managers.RecipeManagementService.Adapters\Managers.RecipeManagement.Adapters.csproj", "{E0F01253-8329-4055-A459-801C27A0C1FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

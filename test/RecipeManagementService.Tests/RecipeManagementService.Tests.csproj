@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Managers.RecipeManagementService.Adapters\Managers.RecipeManagement.Adapters.csproj" />
+    <ProjectReference Include="..\..\src\Managers.RecipeManagementService.Adapters\Managers.RecipeManagement.Adapters.csproj" />
     <ProjectReference Include="..\..\src\Managers.RecipeManagementService\Managers.RecipeManagementService.csproj" />
   </ItemGroup>
 
