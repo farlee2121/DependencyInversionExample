@@ -9,7 +9,7 @@ namespace Clients.Web
 
         public static void RegisterAppServices(IServiceCollection services)
         {
-            services.AddScoped<RecipeManagementService>();
+            services.AddScoped<IRecipeManagementService, RecipeManagementService>();
             services.AddSingleton<IRecipeAccess, InMemoryRecipeAccess>();
             services.AddSingleton<IRecipeEventNotifier, NullRecipeEventNotifier>();
         }

@@ -10,9 +10,9 @@ namespace Clients.Web.Pages.Recipes
         public IReadOnlyCollection<Recipe> Recipes { get; set; } = new List<Recipe>();
         
         
-        private readonly RecipeManagementService recipeManager;
+        private readonly IRecipeManagementService recipeManager;
 
-        public IndexModel(RecipeManagementService recipeManager)
+        public IndexModel(IRecipeManagementService recipeManager)
         {
             this.recipeManager = recipeManager;
         }

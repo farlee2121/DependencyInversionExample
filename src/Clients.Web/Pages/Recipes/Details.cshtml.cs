@@ -8,8 +8,8 @@ namespace Clients.Web.Pages.Recipes
     {
         public Recipe? Recipe { get; set; }
 
-        private readonly RecipeManagementService recipeManager;
-        public DetailsModel(RecipeManagementService recipeManager)
+        private readonly IRecipeManagementService recipeManager;
+        public DetailsModel(IRecipeManagementService recipeManager)
         {
             this.recipeManager = recipeManager;
         }

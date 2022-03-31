@@ -14,9 +14,9 @@ namespace Clients.Web.Pages.Recipes
 
 
 
-        private readonly RecipeManagementService recipeManager;
+        private readonly IRecipeManagementService recipeManager;
 
-        public CreateRecipeModel(RecipeManagementService recipeManager)
+        public CreateRecipeModel(IRecipeManagementService recipeManager)
         {
             this.recipeManager = recipeManager;
         }

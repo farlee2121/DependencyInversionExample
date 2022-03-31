@@ -9,7 +9,7 @@ namespace RecipeManagementServiceTests;
 
 public class RecipeManagementServiceTests
 {
-    RecipeManagementService sut;
+    IRecipeManagementService sut;
     SpyRecipeEventNotifier spyNotifier;
     InMemoryRecipeAccess recipeAccessDouble;
     public RecipeManagementServiceTests()

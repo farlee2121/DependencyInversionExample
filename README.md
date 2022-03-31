@@ -48,6 +48,8 @@ Some examples of composed adapters
 ## Tasks
 - [x] make readme explaining demonstrated ideas
 - [ ] Demonstrate a composition root
+	- I don't have to use the root. I could just demonstrate the equivalent registration in the UI. Since I only use the manager,
+	I can just do the pure composition root in the factory
 - [ ] Demonstrate injecting request context without caller knowing the information
   - [x] restrict recipes by user
   - [x] add basic recipe create and list
@@ -61,3 +63,4 @@ Some examples of composed adapters
 
 note: now that UI is done, most of the other cases should be fairly simple. I don't actually need to implement much of anything, just some some composition cases.
 I can rely on naming to communicate what could be done
+- IDEA: I don't have to use
