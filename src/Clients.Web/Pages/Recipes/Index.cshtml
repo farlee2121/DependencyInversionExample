@@ -15,7 +15,7 @@ else
     <ul>
         @foreach(Recipe recipe in Model.Recipes)
         {
-            <li><a>@recipe.Title</a></li>
+            <li><a asp-page="Details" asp-route-id="@recipe.Id.id">@recipe.Title</a></li>
         }
 
     </ul>

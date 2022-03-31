@@ -1,0 +1,14 @@
+﻿@page
+@model Clients.Web.Pages.Recipes.DetailsModel
+@{
+}
+
+@if(Model.Recipe != null){
+    <h1>@Model.Recipe.Title</h1>
+
+    <hr />
+    <p>@Model.Recipe.Instructions.text</p>
+}
+else{
+    <p>Can't seem to find that recipe</p>
+}
