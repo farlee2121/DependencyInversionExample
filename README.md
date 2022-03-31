@@ -49,11 +49,15 @@ Some examples of composed adapters
 - [x] make readme explaining demonstrated ideas
 - [ ] Demonstrate a composition root
 - [ ] Demonstrate injecting request context without caller knowing the information
-  - [ ] restrict recipes by user
-  - [ ] add basic recipe create and list
+  - [x] restrict recipes by user
+  - [x] add basic recipe create and list
   - [ ] Add authentication decorator
 - [ ] Demonstrate a service instantiated two ways in a single DI chain
 - [ ] Demonstrate some component reuse (idea: migration, backup, scheduled tasks)
 - [ ] Demonstrate pure composition root
   - [ ] arguably accomplished by tests
 - [ ] Separate out adapter tests?
+
+
+note: now that UI is done, most of the other cases should be fairly simple. I don't actually need to implement much of anything, just some some composition cases.
+I can rely on naming to communicate what could be done
