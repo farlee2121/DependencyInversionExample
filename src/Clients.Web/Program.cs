@@ -1,6 +1,9 @@
 using Utilities.Identity.AspIdentity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Managers;
+using Clients.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +16,8 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
+
+CompositionRoot.RegisterAppServices(builder.Services);
 
 var app = builder.Build();
 
@@ -39,3 +44,5 @@ app.UseAuthorization();
 app.MapRazorPages();
 
 app.Run();
+
+

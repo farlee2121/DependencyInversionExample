@@ -1,0 +1,22 @@
+﻿@page
+@using Managers
+@model Clients.Web.Pages.Recipes.IndexModel
+@{
+}
+
+<a class="btn btn-success" asp-page="CreateRecipe">Add Recipe</a>
+
+@if(Model.Recipes == null || !Model.Recipes.Any())
+{
+    <p>No recipes</p>
+}
+else
+{
+    <ul>
+        @foreach(Recipe recipe in Model.Recipes)
+        {
+            <li><a>@recipe.Title</a></li>
+        }
+
+    </ul>
+}

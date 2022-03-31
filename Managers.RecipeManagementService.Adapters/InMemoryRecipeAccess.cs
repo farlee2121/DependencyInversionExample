@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace RecipeManagementServiceTests;
+namespace Managers.RecipeManagement;
 
-class InMemoryRecipeAccess : IRecipeAccess
+public class InMemoryRecipeAccess : IRecipeAccess
 {
     private Dictionary<(UserId uId, RecipeId rId), Recipe> _recipes = new ();
     public Recipe? FindRecipe(RecipeId id)
