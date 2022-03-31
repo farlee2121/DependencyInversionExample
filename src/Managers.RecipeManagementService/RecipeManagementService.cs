@@ -2,7 +2,15 @@
 
 namespace Managers;
 
-public class RecipeManagementService
+public interface IRecipeManagementService
+{
+    void CreateRecipe(UserId userId, Recipe recipe);
+    IReadOnlyCollection<Recipe> ListRecipes(UserId userId);
+    PublicationResult Publish(RecipeId recipeId);
+    Recipe? RecipeDetails(RecipeId recipeId);
+}
+
+public class RecipeManagementService : IRecipeManagementService
 {
     private readonly IRecipeEventNotifier notifier;
     private readonly IRecipeAccess recipeAccess;
@@ -12,8 +20,9 @@ public class RecipeManagementService
         this.notifier = notifier;
         this.recipeAccess = recipeAccess;
     }
-    
-    public PublicationResult Publish(RecipeId recipeId){
+
+    public PublicationResult Publish(RecipeId recipeId)
+    {
 
         var recipe = recipeAccess.FindRecipe(recipeId);
         if (recipe == null) return new PublicationResult.UnknownRecipe(recipeId);
