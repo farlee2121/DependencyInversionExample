@@ -9,5 +9,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Managers.RecipeManagementService\Managers.RecipeManagementService.csproj" />
   </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="StrongGrid" Version="0.65.0" />
+	</ItemGroup>
 
 </Project>
