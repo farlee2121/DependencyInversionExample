@@ -15,6 +15,8 @@ This includes demonstrating constructor injection as well as benefits of Depende
 - Constructor injection allows alternative configurations of the same service within the same dependency hierarchy, or even on a single service. 
   - This cannot be achieved with service locator without the consuming service supplying additional differentiation between required configuration
 
+It may be a good idea to start with [RecipeManagementService.Tests/SmallConstructorInjectionSample.cs](./test/RecipeManagementService.Tests/SmallConstructorInjectionSample.cs)
+
 Some benefits of constructor injection over service locator that are not demonstrated
 - Greatly reduced odds of accidental circular dependencies compared to service locator
 - Option for pure composition approach (hand-written composition root), which allows the compiler to catch any composition issues right away (e.g. missed registrations, changes in dependencies, captive dependencies)
@@ -44,6 +46,7 @@ Some examples of composed adapters
 - Retry / failure policy: again added as a decorator
 - Transport/protocol: requests to a port/service can be moved out of process without service or adapter changing, only a new decorator (and maybe a new client) 
 - Authorization
+
 
 ## Tasks
 - [x] make readme explaining demonstrated ideas
