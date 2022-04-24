@@ -26,7 +26,7 @@ Some benefits of constructor injection over service locator that are not demonst
 This repository also aims to demonstrate how Dependency Injection != Dependency Inversion, and benefits that can be gained from Dependency Inversion.
 
 To clarify the difference
-- Dependency Injection -> dependency instances constructed externally and provided to a component
+- Dependency Injection -> dependency instances constructed externally and provided to a component ready-to-use
 - Dependency Inversion -> *Abstractions belong to the callers.* Implementations are created in separate and unreferenced assemblies then generally composed together by a third-party consumer
 
 Benefits of Dependency Inversion (over injection)
